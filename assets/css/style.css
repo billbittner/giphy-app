@@ -1,5 +1,49 @@
 
-button, div, form, input {
+.topic-btn, .form-label, .form-input, .form-btn {
     margin: 10px;
+    padding: 10px;
 }
 
+.topic-btn, .form-btn {
+    border: none;
+}
+
+.topic-btn {
+    font-size: large;
+    background-color: blue;
+    color: lightblue;
+}
+
+.topic-btn:hover {
+    background-color: dodgerblue;
+}
+
+.form-label, .form-input, .form-btn {
+
+}
+
+.form-btn {
+    background-color: darkgoldenrod;
+    color: saddlebrown
+}
+
+.form-btn:hover {
+    background-color: gold;
+}
+
+.gif-wrapper{
+    margin: 20px;
+    float: left;
+    text-align: center;
+    border: 1px dashed grey;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+
+.giphy {
+    margin: 30px 30px 15px 30px;
+}
+
+.rating {
+    margin: 15px 30px 30px 30px;
+}

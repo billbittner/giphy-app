@@ -8,10 +8,8 @@
 		//decide how many results to display
 		var numberOfResults = 10;
 		//get the components of the queryURL
-		var giphyTopic = $(this).attr('data-name');  
-		console.log(giphyTopic);
-		var giphyTopicCondensed = giphyTopic.split(" ").join("+"); //NOTE: need to combine multiple words into "example+example"
-		console.log(giphyTopicCondensed);
+		var giphyTopic = $(this).attr("data-name");  
+		var giphyTopicCondensed = giphyTopic.split(" ").join("+"); //combine multiple words into "example+example"
 		var apiKey = "&api_key=dc6zaTOxFJmzC"
 		//compile the query components into a queryRUL
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + giphyTopicCondensed + apiKey;
@@ -23,6 +21,11 @@
 			var results = response.data;
 			//display the results, up to the number of results defined above
 			for (var i = 0; i < numberOfResults; i++){
+				//create a div to hold giphy and rating
+				var newDiv = $("<div>");
+				newDiv.addClass("gif-wrapper");
+				$("#giphyView").append(newDiv);
+				//add the giphy to the new div
 				var newGiphy = $("<img>");
 				newGiphy.addClass("gif");
 				newGiphy.attr("data-state", "still");
@@ -30,7 +33,11 @@
 				newGiphy.attr("data-stillURL", results[i].images.fixed_height_small_still.url);
 				newGiphy.attr("src", newGiphy.attr("data-stillURL"));
 				newGiphy.attr("alt", giphyTopic);
-				$("#giphyView").append(newGiphy);
+				newDiv.append(newGiphy);
+				//add the rating after the giphy
+				var newRating = $("<p>");
+				newRating.text("Rating: " + results[i].rating);
+				newGiphy.after(newRating);
 			};
 		});
 	}
@@ -38,19 +45,19 @@
 	// function for displaying giphys data 
 	function renderTopicButtons(){ 
 		// clear out all the previous topic buttons before re-displaying the topic array
-		$('#buttonsView').empty();
+		$("#buttonsView").empty();
 		// Loops through the array of topics
 		for (var i = 0; i < topics.length; i++){
 			// generate a button for each topic in the array
-		    var topicButton = $('<button>') 
+		    var topicButton = $("<button>") 
 			//add a class to the button
-		    topicButton.addClass('topic');
+		    topicButton.addClass("topic-btn");
 			// Added a data-attribute
-		    topicButton.attr('data-name', topics[i]); 
+		    topicButton.attr("data-name", topics[i]); 
 			// add button text
 		    topicButton.text(topics[i]); 
 			// Added the button to the HTML
-		    $('#buttonsView').append(topicButton); 
+		    $("#buttonsView").append(topicButton); 
 		};
 	}
 
@@ -70,9 +77,9 @@
 	}
 
 	// add a new topic button when clicked 
-	$('#addTopic').on('click', function(){
+	$("#topic-form-btn").on('click', function(){
 		// grab the input from the textbox and trim it
-		var newTopic = $('#topic-input').val().trim();
+		var newTopic = $('#topic-form-input').val().trim();
 		//as long as there is something in the input box, and it's not already a button, create the button
 		if ((newTopic !== "") && (topicExists(newTopic, topics) === false)){
 			// add the new topic to the topic array
@@ -85,7 +92,7 @@
 	})
 
 	//display the giphys
-	$(document).on('click', '.topic', displayGiphys);
+	$(document).on('click', '.topic-btn', displayGiphys);
 
 	$(document).on('click', '.gif', function(){
 			//store the current state in a variable 'state'
