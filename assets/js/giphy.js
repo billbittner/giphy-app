@@ -1,5 +1,5 @@
 	// Initial array of giphy categories
-	var topics = ["Birds", "Bees"];
+	var topics = ["Arrested Development", "The Office", "Stranger Things", "The Simpsons"];
 
 	// function to renders the giphys when a topic button is pressed 
 	function displayGiphys(){
