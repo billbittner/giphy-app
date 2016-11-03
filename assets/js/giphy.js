@@ -77,25 +77,25 @@
 	}
 
 	// add a new topic button when clicked 
-	$("#topic-form-btn").on('click', function(){
+	$("#topic-form-btn").on("click", function(){
 		// grab the input from the textbox and trim it
-		var newTopic = $('#topic-form-input').val().trim();
-		//as long as there is something in the input box, and it's not already a button, create the button
+		var newTopic = $("#topic-form-input").val().trim();
+		//as long as there is something in the input box, and it"s not already a button, create the button
 		if ((newTopic !== "") && (topicExists(newTopic, topics) === false)){
 			// add the new topic to the topic array
 			topics.push(newTopic);
 			// render the topic buttons based on the updated array
 			renderTopicButtons();
 		};
-		// We have this line so that users can hit "enter" instead of clicking on the button, it won't move to the next page
+		// We have this line so that users can hit "enter" instead of clicking on the button, it won"t move to the next page
 		return false;
 	})
 
 	//display the giphys
-	$(document).on('click', '.topic-btn', displayGiphys);
+	$(document).on("click", ".topic-btn", displayGiphys);
 
-	$(document).on('click', '.gif', function(){
-			//store the current state in a variable 'state'
+	$(document).on("click", ".gif", function(){
+			//store the current state in a variable
             var state = $(this).attr("data-state");
 			//switch the state and corresponding image
             if (state === "still") {
