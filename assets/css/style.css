@@ -1,4 +1,8 @@
 
+h1, h2, h3, p, form, .form-label, .form-input, .form-btn, button {
+    font-family: 'Coiny', sans-serif;
+}
+
 .topic-btn, .form-label, .form-input, .form-btn {
     margin: 10px;
     padding: 10px;
@@ -18,10 +22,6 @@
     background-color: dodgerblue;
 }
 
-.form-label, .form-input, .form-btn {
-
-}
-
 .form-btn {
     background-color: darkgoldenrod;
     color: saddlebrown
@@ -31,17 +31,18 @@
     background-color: gold;
 }
 
-.gif-wrapper{
+.gif-wrapper {
     margin: 20px;
     float: left;
     text-align: center;
-    border: 1px dashed grey;
+}
+
+.gif {
     box-shadow: 10px 10px 5px #888888;
 }
 
-
-.giphy {
-    margin: 30px 30px 15px 30px;
+.playing-gif {
+    box-shadow: 10px 10px 5px yellow;
 }
 
 .rating {

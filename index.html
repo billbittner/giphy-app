@@ -3,24 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<title>Bill's Giphy App</title>
+	<title>Action Movie Gifs</title>
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Explore the World of TV Show Gifs!</h1>
-
+        <h1>Action-Movie Gif Generator</h1>
+        <h2>Click on a movie to display gifs below, or add a new movie of your own.</h2>
         <!-- rendered buttons will go here  -->
         <div id="buttonsView"></div>
-
         <!-- this is the form to get new giphy categories -->
         <form id="topic-form">
-            <label id="topic-form-label" class="form-label" for="topic-input">Add a new TV show:</label>
+            <label id="topic-form-label" class="form-label" for="topic-input">Add a new movie:</label>
             <input id="topic-form-input" class="form-input" type="text" placeholder="Type a new category here">
-            <input id="topic-form-btn" class="form-btn" type="submit" value="Add TV show">
+            <input id="topic-form-btn" class="form-btn" type="submit" value="Submit">
         </form>
-
         <!-- the giphys will be placed here -->
         <div id="giphyView"></div>
     </div>

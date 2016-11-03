@@ -1,5 +1,5 @@
 	// Initial array of giphy categories
-	var topics = ["Arrested Development", "The Office", "Stranger Things", "The Simpsons"];
+	var topics = ["Die Hard", "Judge Dredd", "Matrix", "Jaws", "Terminator", "Face Off"];
 
 	// function to renders the giphys when a topic button is pressed 
 	function displayGiphys(){
@@ -29,8 +29,8 @@
 				var newGiphy = $("<img>");
 				newGiphy.addClass("gif");
 				newGiphy.attr("data-state", "still");
-				newGiphy.attr("data-animateURL", results[i].images.fixed_height_small.url);
-				newGiphy.attr("data-stillURL", results[i].images.fixed_height_small_still.url);
+				newGiphy.attr("data-animateURL", results[i].images.fixed_height.url);
+				newGiphy.attr("data-stillURL", results[i].images.fixed_height_still.url);
 				newGiphy.attr("src", newGiphy.attr("data-stillURL"));
 				newGiphy.attr("alt", giphyTopic);
 				newDiv.append(newGiphy);
@@ -101,9 +101,13 @@
             if (state === "still") {
                 $(this).attr("src", $(this).attr("data-animateURL"));
                 $(this).attr("data-state", "animate");
+				//add a class for css purposes
+				$(this).addClass("playing-gif");
             } else {
                 $(this).attr("src", $(this).attr("data-stillURL"));
                 $(this).attr("data-state", "still");
+				//remove class for css purposes
+				$(this).removeClass("playing-gif");
             };
         });
 
