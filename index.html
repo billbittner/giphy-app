@@ -9,21 +9,24 @@
 </head>
 <body>
 
-    <div class="container">
+    <header>
         <h1>Action-Movie Gif Generator</h1>
-        <h2>Click on a movie to display gifs below, or add a new movie of your own.</h2>
-        <!-- rendered buttons will go here  -->
+    </header>
+    <!-- rendered buttons will go here  -->
+    <div class="buttons-banner">
         <div id="buttonsView"></div>
         <!-- this is the form to get new giphy categories -->
         <form id="topic-form">
             <label id="topic-form-label" class="form-label" for="topic-input">Add a new movie:</label>
+            </br>
             <input id="topic-form-input" class="form-input" type="text" placeholder="Type a new category here">
+            </br>
             <input id="topic-form-btn" class="form-btn" type="submit" value="Submit">
         </form>
-        <!-- the giphys will be placed here -->
-        <div id="giphyView"></div>
     </div>
-
+    <!-- the giphys will be placed here -->
+    <div id="giphyView"></div>
+    </div>
     <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
     <script type="text/javascript" src="assets/js/giphy.js"></script>
 

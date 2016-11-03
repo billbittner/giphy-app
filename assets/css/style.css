@@ -1,6 +1,45 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+header, .buttons-banner {
+    width: 100%;
+    margin: 0px;
+    padding: 20px 10px 20px 10px;
+}
+
+header {
+    background: darkslategray;
+}
+
+.buttons-banner {
+    background: darkgrey;
+    overflow: auto;
+}
+
+#buttonsView {
+    float: left;
+    width: 60%
+}
+
+#topic-form {
+    float: right;
+    width: 35%;
+}
 
 h1, h2, h3, p, form, .form-label, .form-input, .form-btn, button {
     font-family: 'Coiny', sans-serif;
+}
+
+h1, h2, h3 {
+    padding: 0px 10px 0px 10px;
+    color: yellow;
+    line-height: 1.5;
+}
+
+.form-label {
+    color: darkgoldenrod;
 }
 
 .topic-btn, .form-label, .form-input, .form-btn {
