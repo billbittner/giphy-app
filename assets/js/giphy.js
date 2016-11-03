@@ -5,22 +5,21 @@
 	function displayGiphys(){
 		//clear all the giphs already displayed
 		$("#giphyView").empty();
-		//decide how many results to display
-		var numberOfResults = 10;
 		//get the components of the queryURL
 		var giphyTopic = $(this).attr("data-name");  
 		var giphyTopicCondensed = giphyTopic.split(" ").join("+"); //combine multiple words into "example+example"
+		var numberOfResults = "&limit=" + 10;
 		var apiKey = "&api_key=dc6zaTOxFJmzC"
 		//compile the query components into a queryRUL
-		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + giphyTopicCondensed + apiKey;
+		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + giphyTopicCondensed + numberOfResults + apiKey;
 		
 		// Creates AJAX call for the specific giphy being requested
 		$.ajax({url: queryURL, method: 'GET'}).done(function(response) {
 			console.log(response);
 			//store the results array
 			var results = response.data;
-			//display the results, up to the number of results defined above
-			for (var i = 0; i < numberOfResults; i++){
+			//display all the results that are returned
+			for (var i = 0; i < response.data.length; i++){
 				//create a div to hold giphy and rating
 				var newDiv = $("<div>");
 				newDiv.addClass("gif-wrapper");

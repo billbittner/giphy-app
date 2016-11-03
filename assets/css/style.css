@@ -14,12 +14,13 @@ h1, h2, h3, p, form, .form-label, .form-input, .form-btn, button {
 
 .topic-btn {
     font-size: large;
-    background-color: blue;
-    color: lightblue;
+    background-color: darkred;
+    color: orangered;
 }
 
 .topic-btn:hover {
-    background-color: dodgerblue;
+    background-color: red;
+    color: darkred
 }
 
 .form-btn {
