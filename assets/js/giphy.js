@@ -1,7 +1,7 @@
-	// Initial array of giphy categories
+	// initial array of giphy categories
 	var topics = ["Die Hard", "Judge Dredd", "Matrix", "Jaws", "Terminator", "Face Off"];
 
-	// function to renders the giphys when a topic button is pressed 
+	// function to render the giphys when a topic button is pressed 
 	function displayGiphys(){
 		//clear all the giphs already displayed
 		$("#giphyView").empty();
@@ -33,7 +33,7 @@
 				newGiphy.attr("src", newGiphy.attr("data-stillURL"));
 				newGiphy.attr("alt", giphyTopic);
 				newDiv.append(newGiphy);
-				//add the rating after the giphy
+				//add the rating below the giphy
 				var newRating = $("<p>");
 				newRating.text("Rating: " + results[i].rating);
 				newGiphy.after(newRating);
@@ -41,7 +41,7 @@
 		});
 	}
 
-	// function for displaying giphys data 
+	// function to create buttons based on the array of topics   
 	function renderTopicButtons(){ 
 		// clear out all the previous topic buttons before re-displaying the topic array
 		$("#buttonsView").empty();
@@ -49,13 +49,13 @@
 		for (var i = 0; i < topics.length; i++){
 			// generate a button for each topic in the array
 		    var topicButton = $("<button>") 
-			//add a class to the button
+			// add a class to the button
 		    topicButton.addClass("topic-btn");
-			// Added a data-attribute
+			// add a data-attribute
 		    topicButton.attr("data-name", topics[i]); 
 			// add button text
 		    topicButton.text(topics[i]); 
-			// Added the button to the HTML
+			// append the button 
 		    $("#buttonsView").append(topicButton); 
 		};
 	}
@@ -79,20 +79,20 @@
 	$("#topic-form-btn").on("click", function(){
 		// grab the input from the textbox and trim it
 		var newTopic = $("#topic-form-input").val().trim();
-		//as long as there is something in the input box, and it"s not already a button, create the button
+		// as long as there is something in the input box, and it"s not already a button, create the button
 		if ((newTopic !== "") && (topicExists(newTopic, topics) === false)){
 			// add the new topic to the topic array
 			topics.push(newTopic);
 			// render the topic buttons based on the updated array
 			renderTopicButtons();
 		};
-		// We have this line so that users can hit "enter" instead of clicking on the button, it won"t move to the next page
 		return false;
 	})
 
-	//display the giphys
+	// display the giphys
 	$(document).on("click", ".topic-btn", displayGiphys);
 
+	// put the click function on all gifs to play/pause
 	$(document).on("click", ".gif", function(){
 			//store the current state in a variable
             var state = $(this).attr("data-state");
